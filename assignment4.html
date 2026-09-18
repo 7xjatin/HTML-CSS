@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Designer</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
+</head>
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "DM Sans", sans-serif;
+    background: #eee8fa;
+    color: #151020;
+}
+
+.hero {
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+    padding: 0 6%;
+    background: #eee8fa;
+}
+
+.navbar {
+    height: 100px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    position: relative;
+    z-index: 10;
+}
+
+.logo {
+    font-size: 30px;
+    font-weight: 700;
+    letter-spacing: -2px;
+}
+
+nav {
+    display: flex;
+    gap: 42px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #20182b;
+
+    font-size: 11px;
+    font-weight: 600;
+
+    letter-spacing: 1.5px;
+
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #7650b8;
+}
+
+.talk-btn {
+    text-decoration: none;
+
+    background: #6841a8;
+    color: white;
+
+    padding: 14px 23px;
+
+    border-radius: 30px;
+
+    font-size: 11px;
+    font-weight: 700;
+
+    letter-spacing: 1px;
+
+    box-shadow: 0 8px 25px rgba(80, 40, 130, 0.2);
+}
+
+.talk-btn span {
+    margin-left: 8px;
+    font-size: 15px;
+}
+
+.content {
+    min-height: calc(100vh - 100px);
+
+    display: flex;
+    align-items: center;
+
+    position: relative;
+    z-index: 5;
+}
+
+.left-content {
+    position: relative;
+    z-index: 4;
+
+    margin-top: -2px
+}
+
+.intro {
+    font-size: 12px;
+    font-weight: 700;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 25px;
+
+    color: #25202d;
+}
+
+h1 {
+    font-family: "Oswald", sans-serif;
+
+    font-size: clamp(75px, 8.5vw, 145px);
+
+    line-height: 0.83;
+
+    letter-spacing: -4px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+h1 span {
+    color: #7d5ab6;
+}
+
+h1 strong {
+    color: #130d1b;
+    font-weight: 700;
+}
+
+.description {
+    margin-top: 35px;
+
+    font-size: 16px;
+    line-height: 1.6;
+
+    color: #777080;
+}
+
+.buttons {
+    display: flex;
+    align-items: center;
+
+    gap: 35px;
+
+    margin-top: 35px;
+}
+
+.portfolio {
+    text-decoration: none;
+
+    background: #6841a8;
+    color: white;
+
+    padding: 16px 25px;
+
+    border-radius: 30px;
+
+    font-size: 11px;
+    font-weight: 700;
+
+    letter-spacing: 1px;
+
+    transition: 0.3s;
+}
+
+.portfolio span {
+    font-size: 17px;
+    margin-left: 15px;
+}
+
+.cv {
+    text-decoration: none;
+
+    color: #211b29;
+
+    font-size: 11px;
+    font-weight: 700;
+
+    letter-spacing: 1px;
+}
+
+.cv span {
+    font-size: 18px;
+    margin-left: 10px;
+}
+
+.person {
+    position: absolute;
+    right: -2%;
+
+    width: 1000px;
+    height: 1000px;
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.person img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+    object-position: center;
+}
+
+
+.location h3 {
+    font-family: "Oswald", sans-serif;
+
+    font-size: 28px;
+
+    letter-spacing: 1px;
+
+    margin-top: 3px;
+}
+
+.location span {
+    font-size: 23px;
+
+    display: block;
+
+    margin-top: 7px;
+}
+
+.grid {
+    position: absolute;
+    right: 8%;
+    top: 180px;
+
+    width: 180px;
+    height: 180px;
+
+    opacity: 0.15;
+
+    background-image:url(image1.png)
+        linear-gradient(#8d75ad 1px, transparent 1px),
+        linear-gradient(90deg, #8d75ad 1px, transparent 1px);
+
+
+    background-size: 18px 18px;
+}
+
+
+@media (max-width: 1000px) {
+
+    nav {
+        gap: 18px;
+    }
+
+    .person {
+        right: -5%;
+        width: 380px;
+    }
+
+    .location {
+        display: none;
+    }
+
+}
+
+
+@media (max-width: 750px) {
+
+    .hero {
+        padding: 0 25px;
+    }
+
+    .navbar {
+        height: 80px;
+    }
+
+    nav {
+        display: none;
+    }
+
+    .content {
+        align-items: flex-start;
+        padding-top: 80px;
+    }
+
+    h1 {
+        font-size: 75px;
+    }
+
+    .person {
+        width: 300px;
+        height: 450px;
+
+        right: -40px;
+        opacity: 0.75;
+    }
+
+    .person::before {
+        width: 350px;
+        height: 350px;
+    }
+
+    .description {
+        font-size: 14px;
+    }
+
+}
+
+
+@media (max-width: 500px) {
+
+    h1 {
+        font-size: 60px;
+        letter-spacing: -2px;
+    }
+
+    .intro {
+        font-size: 9px;
+    }
+
+    .description {
+        font-size: 13px;
+    }
+
+    .person {
+        opacity: 0.35;
+        right: -80px;
+    }
+
+    .buttons {
+        gap: 15px;
+        flex-wrap: wrap;
+    }
+
+}
+.container {
+    width: 90%;
+    margin: 50px auto;
+    padding: 35px 20px;
+    margin-top: -0px;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    background: #ffffff;
+    border-radius: 8px;
+
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.05);
+  
+}
+
+.stat-box {
+    width: 25%;
+    text-align: center;
+    padding: 10px 20px;
+
+    border-right: 1px solid #eeeeee;
+}
+
+.stat-box:last-child {
+    border-right: none;
+}
+
+.icon {
+    font-size: 38px;
+    color: #8b45c6;
+    margin-bottom: 10px;
+}
+
+.stat-box h2 {
+    font-size: 48px;
+    font-weight: 500;
+    margin: 0 0 8px;
+    color: #111111;
+}
+
+.stat-box p {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    color: #555555;
+    margin: 0;
+}
+@media (max-width: 700px) {
+
+    .container {
+        flex-direction: column;
+        gap: 25px;
+    }
+
+    .stat-box {
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid #eeeeee;
+        padding-bottom: 20px;
+    }
+
+    .stat-box:last-child {
+        border-bottom: none;
+    }
+
+    .stat-box h2 {
+        font-size: 40px;
+    }
+}
+.experience {
+    width: 90%;
+    max-width: 1200px;
+    margin: 50px auto;
+}
+
+.experience h3 {
+    font-size: 16px;
+    letter-spacing: 1px;
+    margin-bottom: 25px;
+    color: #222;
+}
+
+.cards {
+    display: flex;
+    gap: 20px;
+}
+
+.card {
+    position: relative;
+    width: 25%;
+    height: 400px;
+
+    padding: 40px 30px;
+    box-sizing: border-box;
+
+    border-radius: 18px;
+
+    /* background: url(bg.jpeg); */
+    background-size: cover;
+    background-position: center;
+    background: white;
+ 
+}
+
+.card h2 {
+    font-size: 25px;
+    line-height: 1.15;
+    margin: 0 0 25px;
+
+    color: #17131f;
+}
+
+.card p {
+    font-size: 15px;
+    line-height: 1.7;
+    color: #686270;
+}
+
+.card button {
+    position: absolute;
+    bottom: 25px;
+    left: 25px;
+
+    width: 55px;
+    height: 55px;
+
+    border: none;
+    border-radius: 50%;
+
+    background: white;
+    color: #222;
+
+    font-size: 25px;
+    /* cursor: pointer; */
+}
+.main-box {
+    width: 90%;
+    margin: 40px auto;
+    display: flex;
+    gap: 50px;
+    padding: 40px;
+    background: #faf9ff;
+    border-radius: 20px;
+}
+
+.tools-section {
+    width: 50%;
+}
+
+.process-section {
+    width: 50%;
+}
+
+.main-box h2 {
+    font-size: 18px;
+    letter-spacing: 1px;
+    margin-bottom: 25px;
+}
+
+.tools-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+}
+
+.tool-card {
+    height: 110px;
+    background: white;
+    border-radius: 12px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    box-shadow: 0 4px 15px #eeeeee;
+}
+
+.tool-card p {
+    font-size: 12px;
+    margin-top: 10px;
+}
+
+.tool-icon {
+    width: 45px;
+    height: 45px;
+    border-radius: 9px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.figma {
+    background: #f2f2f2;
+    color: #e94b35;
+}
+
+.photoshop {
+    background: #071d32;
+    color: #31a8ff;
+}
+
+.illustrator {
+    background: #351500;
+    color: #ff9a00;
+}
+
+.xd {
+    background: #47002e;
+    color: #ff61f6;
+}
+
+.canva {
+    background: #35bfc8;
+    color: white;
+}
+
+.webflow {
+    background: #f5f5f5;
+    color: #146ef5;
+}
+
+.sketch {
+    background: #ffb629;
+    color: white;
+}
+
+.invision {
+    background: #ff3366;
+    color: white;
+}
+
+.view-tools {
+    text-align: right;
+    margin-top: 20px;
+    font-size: 11px;
+    font-weight: bold;
+}
+
+.view-tools span {
+    font-size: 20px;
+    margin-left: 5px;
+}
+
+.process-item {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+
+    padding: 18px 5px;
+    border-bottom: 1px solid #eeeeee;
+}
+
+.process-number {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+
+    background: #f0eaff;
+    color: #7658c9;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 11px;
+    font-weight: bold;
+}
+
+.process-item h3 {
+    font-size: 13px;
+    margin: 0 0 6px;
+}
+
+.process-item p {
+    font-size: 11px;
+    color: #777;
+    margin: 0;
+}
+
+</style>
+
+<body>
+
+    <div class="hero">
+
+        <div class="navbar">
+
+            <nav>
+                <a href="#">HOME</a>
+                <a href="#">WORK</a>
+                <a href="#">SERVICES</a>
+                <a href="#">ABOUT</a>
+                <a href="#">CONTACT</a>
+            </nav>
+
+            <a href="#" class="talk-btn">
+                LET'S TALK
+                <span>↗</span>
+            </a>
+
+        </div>
+
+        <div class="grid"></div>
+
+        <div class="content">
+
+            <div class="left-content">
+
+                <p class="intro">
+                    HELLO, I'M A CREATIVE
+                </p>
+
+                <h1>
+                    <span>DIGITAL</span>
+                    <strong>DESIGNER</strong>
+                </h1>
+
+                <p class="description">
+                    I design beautiful, functional and user
+                    <br>
+                    friendly digital experiences.
+                </p>
+
+                <div class="buttons">
+
+                    <a href="#" class="portfolio">
+                        VIEW PORTFOLIO
+                        <span>→</span>
+                    </a>
+
+                    <a href="#" class="cv">
+                        DOWNLOAD CV
+                        <span>⇩</span>
+                    </a>
+
+                </div>
+
+            </div>
+
+            <div class="person">
+
+                <img src="image1.png" alt="Designer">
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="container">
+
+    <div class="stat-box">
+        <div class="icon">🟣</div>
+        <h2>6+</h2>
+        <p>YEARS EXPERIENCE</p>
+    </div>
+
+    <div class="stat-box">
+        <div class="icon">🟪</div>
+        <h2>40+</h2>
+        <p>PROJECTS COMPLETED</p>
+    </div>
+
+    <div class="stat-box">
+        <div class="icon">💜</div>
+        <h2>18+</h2>
+        <p>HAPPY CLIENTS</p>
+    </div>
+
+    <div class="stat-box">
+        <div class="icon">👑</div>
+        <h2>12</h2>
+        <p>AWARDS RECEIVED</p>
+    </div>
+
+    </div>
+
+    <section class="experience">
+    <h3>MY EXPERTISE</h3>
+
+    <div class="cards">
+
+        <div class="card">
+            <h2>UI/UX<br>DESIGN</h2>
+            <p>
+                Creating attractive<br>
+                and user-friendly web<br>
+                experiences.
+            </p>
+        </div>
+
+        <div class="card">
+            <h2>BRANDING &<br>IDENTITY</h2>
+            <p>
+                Building memorable<br>
+                brands that stand out.
+            </p>
+        </div>
+
+        <div class="card">
+            <h2>WEB<br>DESIGN</h2>
+            <p>
+                Designing modern<br>
+                and responsive<br>
+                websites.
+            </p>
+        </div>
+
+        <div class="card">
+            <h2>MOBILE<br>DESIGN</h2>
+            <p>
+                Designing beautiful<br>
+                mobile interfaces<br>
+                with care.
+            </p>
+        </div>
+
+    </div>
+</section>
+
+<div class="main-box">
+
+    <div class="tools-section">
+        <h2>TOOLS & TECHNOLOGIES</h2>
+
+        <div class="tools-grid">
+
+            <div class="tool-card">
+                <div class="tool-icon figma">F</div>
+                <p>Figma</p>
+            </div>
+
+            <div class="tool-card">
+                <div class="tool-icon photoshop">Ps</div>
+                <p>Photoshop</p>
+            </div>
+
+            <div class="tool-card">
+                <div class="tool-icon illustrator">Ai</div>
+                <p>Illustrator</p>
+            </div>
+
+            <div class="tool-card">
+                <div class="tool-icon xd">Xd</div>
+                <p>Adobe XD</p>
+            </div>
+
+            <div class="tool-card">
+                <div class="tool-icon canva">C</div>
+                <p>Canva</p>
+            </div>
+
+            <div class="tool-card">
+                <div class="tool-icon webflow">W</div>
+                <p>Webflow</p>
+            </div>
+
+            <div class="tool-card">
+                <div class="tool-icon sketch">◆</div>
+                <p>Sketch</p>
+            </div>
+
+            <div class="tool-card">
+                <div class="tool-icon invision">In</div>
+                <p>InVision</p>
+            </div>
+
+        </div>
+
+        <div class="view-tools">
+            8 MORE TOOLS <span>→</span>
+        </div>
+    </div>
+
+
+    <div class="process-section">
+
+        <h2>MY PROCESS</h2>
+
+        <div class="process-item">
+            <div class="process-number">01</div>
+            <div>
+                <h3>RESEARCH</h3>
+                <p>Understanding your goals and the problem.</p>
+            </div>
+        </div>
+
+        <div class="process-item">
+            <div class="process-number">02</div>
+            <div>
+                <h3>PLAN</h3>
+                <p>Planning the best solution and strategy.</p>
+            </div>
+        </div>
+
+        <div class="process-item">
+            <div class="process-number">03</div>
+            <div>
+                <h3>DESIGN</h3>
+                <p>Creating wireframes and visual concepts.</p>
+            </div>
+        </div>
+
+        <div class="process-item">
+            <div class="process-number">04</div>
+            <div>
+                <h3>DELIVER</h3>
+                <p>Finalizing the best possible solution.</p>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>
