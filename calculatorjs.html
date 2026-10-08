@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #rs{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+   
+    <form action="">
+        <label for="">Number 1</label>
+        <input type="text" placeholder="Enter your number 1" id="a">
+        <br>
+        <br>
+        <label for="">Number 2</label>
+        <input type="text" placeholder="Enter your number 2" id="b">
+        <br>
+        <br>
+        <button id="btn">-</button>
+
+    </form>
+
+    <h1>result :- <span id="rs"></span></h1>
+
+
+
+    <script>
+       
+        var c = document.getElementById('btn')
+
+        c.addEventListener('click' , function(krish){
+            krish.preventDefault()
+            var a = document.getElementById('a').value
+            var b = document.getElementById('b').value
+            var result = document.getElementById('rs')
+           
+        var add = parseInt(a) - parseInt(b)
+        result.innerHTML=add
+       
+       
+        })
+
+    </script>
+
+</body>
+</html>
