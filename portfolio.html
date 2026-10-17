@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Jatin Sharma | Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="portfolio2.css">
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <nav aria-label="Main">
+      <a class="logo" href="#top">Jatin Sharma</a>
+      <div class="menu" id="menu">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#education">Education</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+        <!-- <button class="icon-btn" id="theme" aria-label="Switch light or dark theme">Theme</button> -->
+      </div>
+      <button class="icon-btn" id="burger" aria-expanded="false" aria-controls="menu">Menu</button>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <div class="hero">
+    <div class="wrap">
+      <p class="hi">Hi, I'm</p>
+      <h1>Jatin Sharma</h1>
+      <p class="role" aria-live="polite">I'm a <span id="role">BBA student</span></p>
+      <div class="cta">
+        <a class="btn solid" href="#projects">See my work</a>
+        <a class="btn" href="#contact">Get in touch</a>
+      </div>
+    </div>
+  </div>
+
+  <section id="about">
+    <div class="wrap about">
+      <div>
+        <h2>About me</h2>
+        <p>I'm pursuing a BBA at Manav Rachna International Institute of Research and Studies. Alongside my degree, I'm learning digital marketing and web designing at IICS.</p>
+        <p>I build web pages with HTML, CSS and JavaScript. I like combining what I learn in business with what I can make on screen, so the sites I design are clear, easy to use and built to get a message across.</p>
+      </div>
+      <dl class="facts">
+        <dt>Name</dt><dd>Jatin Sharma</dd>
+        <dt>Degree</dt><dd>BBA, Manav Rachna International Institute of Research and Studies</dd>
+        <dt>Also learning</dt><dd>Digital marketing and web designing at IICS</dd>
+      </dl>
+    </div>
+  </section>
+
+  <section id="skills" style="background:var(--card);border-block:1px solid var(--line)">
+    <div class="wrap">
+      <h2>What I work with</h2>
+      <div class="tabs" role="tablist" aria-label="Skills">
+        <button class="tab" role="tab" aria-selected="true" data-k="html">HTML</button>
+        <button class="tab" role="tab" aria-selected="false" data-k="css">CSS</button>
+        <button class="tab" role="tab" aria-selected="false" data-k="js">JavaScript</button>
+        <button class="tab" role="tab" aria-selected="false" data-k="mkt">Digital marketing</button>
+      </div>
+      <div class="panel" id="panel" role="tabpanel" aria-live="polite"></div>
+    </div>
+  </section>
+
+  <section id="education">
+    <div class="wrap">
+      <h2>Education and training</h2>
+      <div class="timeline">
+        <div class="item">
+          <h3>Bachelor of Business Administration (BBA)</h3>
+          <div class="where">Manav Rachna International Institute of Research and Studies</div>
+          <p>Currently studying. Business fundamentals that shape how I think about audiences and websites.</p>
+        </div>
+        <div class="item">
+          <h3>Digital Marketing and Web Designing</h3>
+          <div class="where">IICS</div>
+          <p>Currently learning. Covers digital marketing along with HTML, CSS and JavaScript for building websites.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects" style="background:var(--card);border-block:1px solid var(--line)">
+    <div class="wrap">
+      <h2>Projects</h2>
+      <div class="grid">
+        <article class="proj main">
+          <h3>This portfolio website</h3>
+          <p>My web designing project. It has a responsive layout, a light and dark theme, a skills switcher and a contact form with validation.</p>
+          <div class="tags"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
+        </article>
+        <article class="proj">
+          <h3>Next project</h3>
+          <p>Space for my next website from the IICS course. I'll add it here once it's done.</p>
+          <div class="tags"><span>In progress</span></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="wrap">
+      <h2>Contact me</h2>
+      <form id="form" novalidate>
+        <label>Your name<input id="n" autocomplete="name"><span class="err" id="en"></span></label>
+        <label>Your email<input id="e" type="email" autocomplete="email"><span class="err" id="ee"></span></label>
+        <label>Message<textarea id="m" rows="5"></textarea><span class="err" id="em"></span></label>
+        <button class="send" type="submit">Send message</button>
+        <div id="status" role="status"></div>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer><div class="wrap">&copy; <span id="yr"></span> Jatin Sharma. Built with HTML, CSS and JavaScript.</div></footer>
+
+<script src="portfolio2.js"></script>
+</body>
+</html>
