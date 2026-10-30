@@ -1,0 +1,1210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#211914">
+    <meta name="description" content="Jatin Sharma's portfolio — BBA student, digital marketing and web development learner.">
+    <title>Personal Portfolio</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 85px;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #211914;
+            color: #f5f0e9;
+            line-height: 1.7;
+            overflow-x: hidden;
+            transition: background .3s, color .3s;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        button, input, textarea {
+            font: inherit;
+        }
+
+        button, a {
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        button {
+            cursor: pointer;
+        }
+
+        .container {
+            width: min(1120px, 90%);
+            margin-inline: auto;
+        }
+
+        .section {
+            padding: 105px 0;
+        }
+
+        .section-label {
+            color: #c59a78;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            font-size: 12px;
+            font-weight: 700;
+            margin-bottom: 13px;
+        }
+
+        .section-title {
+            font-size: clamp(32px, 5vw, 49px);
+            letter-spacing: -1.8px;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .section-desc {
+            color: #a9a5a0;
+            max-width: 620px;
+            margin-bottom: 45px;
+        }
+
+        .accent {
+            color: #c59a78;
+        }
+
+        .silver {
+            color: #d8d6d2;
+        }
+
+        header {
+            height: 76px;
+            display: flex;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 100;
+            background: rgba(33,25,20,.88);
+            backdrop-filter: blur(18px);
+            border-bottom: 1px solid rgba(216,214,210,.15);
+        }
+
+        .navbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .logo {
+            font-size: 21px;
+            font-weight: 900;
+            letter-spacing: 1px;
+            white-space: nowrap;
+        }
+
+        .logo span {
+            color: #c59a78;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 29px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #a9a5a0;
+            font-size: 13px;
+            transition: color .2s;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #c59a78;
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .menu-btn {
+            height: 40px;
+            width: 40px;
+            border: 1px solid rgba(216,214,210,.15);
+            border-radius: 50%;
+            background: transparent;
+            color: #d8d6d2;
+            font-size: 18px;
+            display: none;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 9px;
+            padding: 13px 22px;
+            border-radius: 5px;
+            font-size: 13px;
+            font-weight: 700;
+            border: 1px solid transparent;
+            transition: transform .25s, background .25s, border-color .25s;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+        }
+
+        .btn-primary {
+            background: #c59a78;
+            color: #211914;
+        }
+
+        .btn-primary:hover {
+            background: #d5ad8c;
+        }
+
+        .btn-outline {
+            border-color: rgba(216,214,210,.15);
+            color: #d8d6d2;
+        }
+
+        .btn-outline:hover {
+            border-color: #c59a78;
+        }
+
+        .main {
+            min-height: 100svh;
+            padding: 125px 0 65px;
+            display: flex;
+            align-items: center;
+            position: relative;
+            isolation: isolate;
+            overflow: hidden;
+        }
+
+        .main::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            z-index: -2;
+            background:
+                radial-gradient(ellipse at 85% 20%,
+                    rgba(155,107,75,.19), transparent 38%),
+                radial-gradient(ellipse at 12% 85%,
+                    rgba(155,107,75,.10), transparent 34%);
+        }
+
+        .main::after {
+            content: "JS";
+            position: absolute;
+            right: -25px;
+            bottom: -115px;
+            z-index: -1;
+            font-size: clamp(250px, 43vw, 570px);
+            line-height: 1;
+            font-weight: 900;
+            letter-spacing: -35px;
+            color: transparent;
+            -webkit-text-stroke: 1px rgba(216,214,210,.055);
+            pointer-events: none;
+        }
+
+        .main-content {
+            max-width: 940px;
+            width: 100%;
+            position: relative;
+            animation: enter .9s ease both;
+        }
+
+        .availability {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            border: 1px solid rgba(216,214,210,.15);
+            border-radius: 30px;
+            padding: 7px 14px;
+            color: #a9a5a0;
+            font-size: 11px;
+            letter-spacing: 1.4px;
+            text-transform: uppercase;
+            margin-bottom: 28px;
+        }
+
+        .status-dot {
+            width: 7px;
+            height: 7px;
+            background: #9ab48c;
+            border-radius: 50%;
+            box-shadow: 0 0 12px rgba(154,180,140,.4);
+        }
+
+        .main h1 {
+            font-size: clamp(49px, 9.3vw, 108px);
+            letter-spacing: -5px;
+            line-height: 1.02;
+            font-weight: 900;
+            margin-bottom: 24px;
+            overflow-wrap: anywhere;
+        }
+
+        .main h1 .name-second {
+            display: block;
+            color: #d8d6d2;
+        }
+
+        .main-subtitle {
+            font-size: clamp(17px, 2.2vw, 23px);
+            color: #c59a78;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .main-description {
+            max-width: 650px;
+            color: #a9a5a0;
+            font-size: 16px;
+            margin-bottom: 32px;
+        }
+
+        .main-buttons {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+
+        .main-meta {
+            margin-top: 53px;
+            padding-top: 22px;
+            border-top: 1px solid rgba(216,214,210,.15);
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .meta-item {
+            color: #a9a5a0;
+            font-size: 12px;
+        }
+
+        .meta-item strong {
+            display: block;
+            color: #d8d6d2;
+            font-size: 13px;
+            margin-bottom: 3px;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1.05fr .95fr;
+            gap: 55px;
+            align-items: start;
+        }
+
+        .about-copy p {
+            color: #a9a5a0;
+            margin-bottom: 17px;
+        }
+
+        .about-note {
+            border-left: 3px solid #c59a78;
+            padding: 12px 0 12px 20px;
+            margin-top: 25px;
+            color: #d8d6d2;
+            font-size: 14px;
+        }
+
+        .education-list {
+            display: grid;
+            gap: 16px;
+        }
+
+        .education-card {
+            background: #30251f;
+            border: 1px solid rgba(216,214,210,.15);
+            border-radius: 9px;
+            padding: 25px;
+            transition: border-color .25s, transform .25s;
+        }
+
+        .education-card:hover {
+            border-color: #c59a78;
+            transform: translateY(-3px);
+        }
+
+        .card-top {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+        }
+
+        .card-icon {
+            display: grid;
+            place-items: center;
+            min-width: 44px;
+            height: 44px;
+            border-radius: 7px;
+            background: rgba(155,107,75,.17);
+            color: #c59a78;
+            font-size: 20px;
+        }
+
+        .education-card h3 {
+            font-size: 17px;
+            margin-bottom: 6px;
+            line-height: 1.4;
+        }
+
+        .education-card p {
+            color: #a9a5a0;
+            font-size: 13px;
+        }
+
+        .card-tag {
+            display: inline-block;
+            margin-top: 15px;
+            color: #c59a78;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .skills-section {
+            background: #2c211b;
+            border-block: 1px solid rgba(216,214,210,.15);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .skill-card {
+            padding: 29px;
+            border: 1px solid rgba(216,214,210,.15);
+            background: #30251f;
+            border-radius: 9px;
+            transition: transform .25s, border-color .25s;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+            border-color: #c59a78;
+        }
+
+        .skill-number {
+            font-size: 12px;
+            color: #c59a78;
+            letter-spacing: 2px;
+        }
+
+        .skill-card h3 {
+            font-size: 20px;
+            margin: 19px 0 10px;
+        }
+
+        .skill-card p {
+            color: #a9a5a0;
+            font-size: 13px;
+            min-height: 67px;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 22px;
+        }
+
+        .skill-tags span {
+            padding: 5px 9px;
+            font-size: 11px;
+            border: 1px solid rgba(216,214,210,.15);
+            border-radius: 4px;
+            color: #d8d6d2;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 22px;
+        }
+
+        .project-card {
+            padding: 30px;
+            border: 1px solid rgba(216,214,210,.15);
+            background: #30251f;
+            border-radius: 9px;
+            position: relative;
+            overflow: hidden;
+            transition: transform .25s, border-color .25s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            border-color: #c59a78;
+        }
+
+        .project-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 25px;
+        }
+
+        .project-type {
+            color: #c59a78;
+            text-transform: uppercase;
+            font-size: 11px;
+            letter-spacing: 1.5px;
+        }
+
+        .project-symbol {
+            font-size: 24px;
+            color: #a9a5a0;
+        }
+
+        .project-card h3 {
+            font-size: 22px;
+            margin-bottom: 10px;
+        }
+
+        .project-card p {
+            color: #a9a5a0;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        .project-footer {
+            padding-top: 16px;
+            border-top: 1px solid rgba(216,214,210,.15);
+            color: #d8d6d2;
+            font-size: 12px;
+        }
+
+        .goal-box {
+            padding: 45px;
+            border-radius: 12px;
+            border: 1px solid rgba(216,214,210,.15);
+            background:
+                linear-gradient(120deg,
+                    rgba(155,107,75,.17), transparent 75%),
+                #30251f;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .goal-box h3 {
+            font-size: clamp(24px, 4vw, 36px);
+            line-height: 1.3;
+            max-width: 650px;
+            margin-bottom: 14px;
+        }
+
+        .goal-box p {
+            color: #a9a5a0;
+            max-width: 630px;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: .85fr 1.15fr;
+            gap: 55px;
+        }
+
+        .contact-copy p {
+            color: #a9a5a0;
+            margin-bottom: 25px;
+        }
+
+        .contact-detail {
+            display: flex;
+            gap: 13px;
+            align-items: center;
+            margin-top: 20px;
+            color: #a9a5a0;
+            font-size: 13px;
+        }
+
+        .contact-detail strong {
+            color: #d8d6d2;
+            display: block;
+            font-size: 14px;
+        }
+
+        .contact-form {
+            display: grid;
+            gap: 17px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .field label {
+            display: block;
+            color: #a9a5a0;
+            font-size: 12px;
+            margin-bottom: 7px;
+        }
+
+        .field input, .field textarea {
+            width: 100%;
+            padding: 13px 14px;
+            border: 1px solid rgba(216,214,210,.15);
+            border-radius: 5px;
+            outline: none;
+            color: #f5f0e9;
+            background: #30251f;
+            transition: border-color .2s;
+        }
+
+        .field input:focus, .field textarea:focus {
+            border-color: #c59a78;
+        }
+
+        .field textarea {
+            resize: vertical;
+            min-height: 135px;
+        }
+
+        .form-message {
+            color: #c59a78;
+            font-size: 13px;
+            overflow-wrap: anywhere;
+        }
+
+        footer {
+            border-top: 1px solid rgba(216,214,210,.15);
+            padding: 25px 0;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            color: #a9a5a0;
+            font-size: 12px;
+        }
+
+        .footer-brand {
+            color: #d8d6d2;
+            font-weight: 700;
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(22px);
+            transition: opacity .65s ease, transform .65s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @keyframes enter {
+            from {
+                opacity: 0;
+                transform: translateY(18px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 850px) {
+            .nav-links {
+                gap: 15px;
+            }
+
+            .nav-links a {
+                font-size: 12px;
+            }
+
+            .about-grid, .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 35px;
+            }
+
+            .skills-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .goal-box {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 650px) {
+            .section {
+                padding: 75px 0;
+            }
+
+            header {
+                height: 68px;
+            }
+
+            .menu-btn {
+                display: inline-grid;
+                place-items: center;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 67px;
+                left: 0;
+                right: 0;
+                background: #211914;
+                border-bottom: 1px solid rgba(216,214,210,.15);
+                padding: 18px 5% 24px;
+                flex-direction: column;
+                align-items: stretch;
+                gap: 0;
+            }
+
+            .nav-links.open {
+                display: flex;
+            }
+
+            .nav-links a {
+                display: block;
+                padding: 11px 0;
+                font-size: 14px;
+            }
+
+            .main {
+                padding-top: 112px;
+                padding-bottom: 48px;
+            }
+
+            .main h1 {
+                letter-spacing: -3px;
+            }
+
+            .main-meta {
+                gap: 18px 25px;
+                margin-top: 37px;
+            }
+
+            .skills-grid, .project-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .skill-card p {
+                min-height: auto;
+            }
+
+            .goal-box {
+                padding: 28px;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                scroll-behavior: auto !important;
+                animation-duration: .01ms !important;
+                transition-duration: .01ms !important;
+            }
+
+            .reveal {
+                opacity: 1;
+                transform: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+<header>
+    <nav class="navbar container" aria-label="Main navigation">
+        <a class="logo" href="#home">JATIN</a>
+
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <section class="main" id="home">
+        <div class="container">
+            <div class="main-content">
+                <div class="availability">
+                    <span class="status-dot"></span>
+                    Student · Learner · Creator
+                </div>
+
+                <p class="section-label">WELCOME TO MY PORTFOLIO</p>
+
+                <h1>
+                    JATIN
+                    <span class="name-second">SHARMA<span class="accent">.</span></span>
+                </h1>
+
+                <p class="main-subtitle">
+                    Digital Marketing / Web Development / BBA
+                </p>
+
+                <p class="main-description">
+                    I am building my future at the intersection of business,
+                    creativity and technology. I enjoy learning how websites
+                    work, how brands grow online, and how digital experiences
+                    can make a difference.
+                </p>
+
+                <div class="main-buttons">
+                    <a class="btn btn-primary" href="#projects">
+                        Explore My Work <span>↗</span>
+                    </a>
+                    <a class="btn btn-outline" href="#contact">
+                        Let's Connect <span>→</span>
+                    </a>
+                </div>
+
+                <div class="main-meta">
+                    <div class="meta-item">
+                        <strong>01 / EDUCATION</strong>
+                        BBA / First Semester
+                    </div>
+                    <div class="meta-item">
+                        <strong>02 / INSTITUTE</strong>
+                        IICS / Professional Learning
+                    </div>
+                    <div class="meta-item">
+                        <strong>03 / INTEREST</strong>
+                        Business & Technology
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="section" id="about">
+        <div class="container about-grid">
+            <div class="about-copy reveal">
+                <p class="section-label">01 — ABOUT ME</p>
+                <h2 class="section-title">
+                    Learning today.<br>
+                    <span class="accent">Building tomorrow.</span>
+                </h2>
+
+                <p>
+                    Hello! I'm Jatin Sharma, a BBA first-semester student
+                    at Manav Rachna International Institute of Research
+                    and Studies. Alongside my college education, I am
+                    developing practical skills in digital marketing
+                    and web development at IICS.
+                </p>
+
+                <p>
+                    My learning journey combines business fundamentals,
+                    online marketing, website design and front-end
+                    development. I believe consistent practice,
+                    curiosity and creativity are important for growth.
+                </p>
+
+                <p>
+                    My goal is to gain real-world experience, create
+                    useful digital projects and build a strong foundation
+                    for a future career in the digital industry.
+                </p>
+
+            </div>
+
+            <div class="education-list reveal">
+                <article class="education-card">
+                    <div class="card-top">
+                        <div>
+                            <h3>Bachelor of Business Administration</h3>
+                            <p>Manav Rachna International Institute of
+                            Research and Studies</p>
+                        </div>
+                    </div>
+                    <span class="card-tag">First Semester · Undergraduate</span>
+                </article>
+
+                <article class="education-card">
+                    <div class="card-top">
+                        <div>
+                            <h3>Diploma / Professional Learning</h3>
+                            <p>Indian Institute of Computer Science (IICS)</p>
+                        </div>
+                    </div>
+                    <span class="card-tag">Digital Marketing</span>
+                    <span class="card-tag">Web Development</span>
+                </article>
+
+                <article class="education-card">
+                    <div class="card-top">
+                        <div>
+                            <h3>Personal Development</h3>
+                            <p>Practising web design, exploring digital
+                            strategies and building practical projects.</p>
+                        </div>
+                    </div>
+                    <span class="card-tag">Always Learning</span>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section class="section skills-section" id="skills">
+        <div class="container">
+            <div class="reveal">
+                <p class="section-label">02 — WHAT I'M LEARNING</p>
+                <h2 class="section-title">
+                    Skills & <span class="accent">Interests.</span>
+                </h2>
+                <p class="section-desc">
+                    The areas I am exploring to combine creativity,
+                    technology and business knowledge.
+                </p>
+            </div>
+
+            <div class="skills-grid">
+                <article class="skill-card reveal">
+                    <span class="skill-number">01 / MARKETING</span>
+                    <h3>Digital Marketing</h3>
+                    <p>
+                        Learning how brands connect with audiences and
+                        grow through online channels and useful content.
+                    </p>
+                    <div class="skill-tags">
+                        <span>SEO Basics</span>
+                        <span>Content Strategy</span>
+                        <span>Social Media</span>
+                        <span>Digital Branding</span>
+                    </div>
+                </article>
+
+                <article class="skill-card reveal">
+                    <span class="skill-number">02 / DEVELOPMENT</span>
+                    <h3>Web Development</h3>
+                    <p>
+                        Learning to turn ideas into responsive websites
+                        with structured code and interactive features.
+                    </p>
+                    <div class="skill-tags">
+                        <span>HTML5</span>
+                        <span>CSS3</span>
+                        <span>JavaScript</span>
+                        <span>Responsive Design</span>
+                    </div>
+                </article>
+
+                <article class="skill-card reveal">
+                    <span class="skill-number">03 / BUSINESS</span>
+                    <h3>Business & Strategy</h3>
+                    <p>
+                        Developing a foundation in management, business
+                        communication and customer-focused thinking.
+                    </p>
+                    <div class="skill-tags">
+                        <span>BBA Studies</span>
+                        <span>Communication</span>
+                        <span>Problem Solving</span>
+                        <span>Research</span>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section class="section" id="projects">
+        <div class="container">
+            <div class="reveal">
+                <p class="section-label">03 — MY WORK</p>
+                <h2 class="section-title">
+                    Projects & <span class="accent">Experiments.</span>
+                </h2>
+                <p class="section-desc">
+                    A space for projects created while learning design,
+                    development and digital marketing.
+                </p>
+            </div>
+
+            <div class="project-grid">
+                <article class="project-card reveal">
+                    <div class="project-top">
+                        <span class="project-type">Web Development</span>
+                    </div>
+                    <h3>Personal Portfolio Website</h3>
+                    <p>
+                        A responsive personal website showcasing education,
+                        interests, skills and projects using HTML, CSS
+                        and JavaScript.
+                    </p>
+                    <div class="project-footer">
+                        HTML5 / CSS3 / JavaScript
+                    </div>
+                </article>
+
+                <article class="project-card reveal">
+                    <div class="project-top">
+                        <span class="project-type">Digital Marketing</span>
+                    </div>
+                    <h3>Digital Brand Strategy</h3>
+                    <p>
+                        A learning concept exploring audience research,
+                        content ideas, brand positioning and an online
+                        presence for a small business.
+                    </p>
+                    <div class="project-footer">
+                        Research / Content / Branding
+                    </div>
+                </article>
+
+                <article class="project-card reveal">
+                    <div class="project-top">
+                        <span class="project-type">Web Design</span>
+                    </div>
+                    <h3>Landing Page Concept</h3>
+                    <p>
+                        A design exercise focused on clear headings,
+                        simple navigation, visual hierarchy and
+                        responsive layouts.
+                    </p>
+                    <div class="project-footer">
+                        UI Design / Layout / CSS
+                    </div>
+                </article>
+
+                <article class="project-card reveal">
+                    <div class="project-top">
+                        <span class="project-type">Future Project</span>
+                    </div>
+                    <h3>Something New Is Coming</h3>
+                    <p>
+                        This space is ready for your next real project.
+                        Add your website link, project details and
+                        results as your experience grows.
+                    </p>
+                    <div class="project-footer">
+                        Learn / Build / Improve
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- GOALS -->
+    <section class="section skills-section">
+        <div class="container">
+            <div class="goal-box reveal">
+                <div>
+                    <p class="section-label">04 — THE VISION</p>
+                    <h3>
+                        Turning knowledge into
+                        <span class="accent">real-world skills.</span>
+                    </h3>
+                    <p>
+                        I want to keep learning, work on meaningful projects,
+                        understand the digital business landscape and
+                        continuously improve as a student and creator.
+                    </p>
+                </div>
+                <a class="btn btn-primary" href="#contact">
+                    Connect With Me <span>↗</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section" id="contact">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-copy reveal">
+                    <p class="section-label">05 — GET IN TOUCH</p>
+                    <h2 class="section-title">
+                        Let's start a<br>
+                        <span class="accent">conversation.</span>
+                    </h2>
+                    <p>
+                        Have a project idea, collaboration opportunity
+                        or simply want to connect? Use the form to
+                        prepare a message.
+                    </p>
+
+                    <div class="contact-detail">
+                        <span class="card-icon">✉</span>
+                        <div>
+                            <strong>Contact</strong>
+                            Use the message form
+                        </div>
+                    </div>
+
+                    <div class="contact-detail">
+                        <span class="card-icon">⌖</span>
+                        <div>
+                            <strong>Education</strong>
+                            BBA · Manav Rachna International Institute
+                        </div>
+                    </div>
+                </div>
+
+                <form class="contact-form reveal" id="contactForm">
+                    <div class="form-row">
+                        <div class="field">
+                            <label for="visitorName">Your name</label>
+                            <input id="visitorName" name="name"
+                                type="text" placeholder="Enter your name"
+                                required maxlength="80">
+                        </div>
+
+                        <div class="field">
+                            <label for="visitorEmail">Your email</label>
+                            <input id="visitorEmail" name="email"
+                                type="email" placeholder="you@example.com"
+                                required maxlength="150">
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label for="visitorSubject">Subject</label>
+                        <input id="visitorSubject" name="subject"
+                            type="text" placeholder="What would you like to discuss?"
+                            required maxlength="120">
+                    </div>
+
+                    <div class="field">
+                        <label for="visitorMessage">Your message</label>
+                        <textarea id="visitorMessage" name="message"
+                            placeholder="Write your message here..."
+                            required maxlength="3000"></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">
+                        Prepare Message <span>↗</span>
+                    </button>
+
+                    <p class="form-message" id="formMessage"></p>
+                </form>
+            </div>
+        </div>
+    </section>
+</main>
+
+<!-- FOOTER -->
+<footer>
+    <div class="container footer-content">
+        <a class="footer-brand" href="#home">JATIN SHARMA.</a>
+        <p>Designed with purpose · Built with HTML, CSS & JavaScript</p>
+        <p><span id="year"></span></p>
+    </div>
+</footer>
+
+<script>
+    var navLinks = document.getElementById("navLinks");
+
+    document.querySelectorAll(".nav-links a").forEach(link => {
+        link.addEventListener("click", () => {
+            navLinks.classList.remove("open");
+        });
+    });
+
+    var revealElements = document.querySelectorAll(".reveal");
+
+    if ("IntersectionObserver" in window) {
+        var revealObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("visible");
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.12 });
+
+        revealElements.forEach(element => revealObserver.observe(element));
+    } else {
+        revealElements.forEach(element => element.classList.add("visible"));
+    }
+
+    var sections = document.querySelectorAll("main section[id]");
+    var navAnchors = document.querySelectorAll(".nav-links a");
+
+    if ("IntersectionObserver" in window) {
+        var sectionObserver = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    navAnchors.forEach(anchor => {
+                        var active = anchor.getAttribute("href") ===
+                            "#" + entry.target.id;
+                        anchor.classList.toggle("active", active);
+                    });
+                }
+            });
+        },);
+
+        sections.forEach(section => sectionObserver.observe(section));
+    }
+
+    var contactForm = document.getElementById("contactForm");
+    var formMessage = document.getElementById("formMessage");
+
+    contactForm.addEventListener("submit", event => {
+        event.preventDefault();
+
+        if (!contactForm.reportValidity()) return;
+
+        var name = document.getElementById("visitorName").value.trim();
+        var email = document.getElementById("visitorEmail").value.trim();
+        var subject = document.getElementById("visitorSubject").value.trim();
+        var message = document.getElementById("visitorMessage").value.trim();
+
+        var portfolioEmail = "7xjatin@gmail.com";
+
+        var mailto = "mailto:" + portfolioEmail +
+            "?subject=" + encodeURIComponent(subject) +
+            "&body=" + encodeURIComponent(
+                "From: " + name + "\nReply email: " + email +
+                "\n\n" + message
+            );
+
+        formMessage.textContent =
+            "Opening your email application with the message draft.";
+
+        window.location.href = mailto;
+    });
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
